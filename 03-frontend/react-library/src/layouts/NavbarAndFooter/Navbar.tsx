@@ -16,7 +16,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark main-color py-3">
       <div className="container-fluid">
-        <span className="navbar-brand font-weight-bold">Thư viện nào đó</span>
+        <span className="navbar-brand">Đây là LMS</span>
         <button
           className="navbar-toggler"
           type="button"
@@ -43,7 +43,7 @@ export const Navbar = () => {
             {authState.isAuthenticated && (
               <li className="nav-item">
                 <NavLink className="nav-link" to="/shelf">
-                  Danh sách sách mượn
+                  Danh sách mượn
                 </NavLink>
               </li>
             )}
@@ -55,6 +55,14 @@ export const Navbar = () => {
                   </NavLink>
                 </li>
               )}
+            {/* Thêm liên kết "Due Soon Notifications" */}
+            {authState.isAuthenticated && (
+              <li className="nav-item">
+                <NavLink className="nav-link" to="/due-soon-notifications">
+                  Thông báo tới hạn
+                </NavLink>
+              </li>
+            )}
           </ul>
           <ul className="navbar-nav ms-auto">
             {!authState.isAuthenticated ? (

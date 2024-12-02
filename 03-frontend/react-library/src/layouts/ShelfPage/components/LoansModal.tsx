@@ -24,7 +24,7 @@ export const LoansModal: React.FC<{
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="staticBackdropLabel">
-              Lựa chọn mượn/trả
+              Loan Options
             </h5>
             <button
               type="button"
@@ -62,11 +62,11 @@ export const LoansModal: React.FC<{
                 <hr />
                 {props.shelfCurrentLoan.daysLeft > 0 && (
                   <p className="text-secondary">
-                    Trả sách trong {props.shelfCurrentLoan.daysLeft} ngày nữa.
+                    trả trong {props.shelfCurrentLoan.daysLeft} ngày.
                   </p>
                 )}
                 {props.shelfCurrentLoan.daysLeft === 0 && (
-                  <p className="text-success">Trả ngay.</p>
+                  <p className="text-success">trả ngay</p>
                 )}
                 {props.shelfCurrentLoan.daysLeft < 0 && (
                   <p className="text-danger">
@@ -82,7 +82,7 @@ export const LoansModal: React.FC<{
                     className="list-group-item list-group-item-action"
                     aria-current="true"
                   >
-                    Trả sách
+                    trả sách
                   </button>
                   <button
                     onClick={
@@ -98,8 +98,8 @@ export const LoansModal: React.FC<{
                     }
                   >
                     {props.shelfCurrentLoan.daysLeft < 0
-                      ? "Không thể gia hạn"
-                      : "Gia hạn thêm 7 ngày nữa"}
+                      ? "Late dues cannot be renewed"
+                      : "Renew loan for 7 days"}
                   </button>
                 </div>
               </div>
@@ -111,7 +111,7 @@ export const LoansModal: React.FC<{
               className="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Đóng
+              đóng
             </button>
           </div>
         </div>

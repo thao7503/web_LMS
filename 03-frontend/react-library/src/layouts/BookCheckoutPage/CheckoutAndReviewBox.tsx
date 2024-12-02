@@ -20,17 +20,17 @@ export const CheckoutAndReviewBox: React.FC<{
             onClick={() => props.checkoutBook()}
             className="btn btn-success btn-lg"
           >
-            Checkout
+            Mượn sách
           </button>
         );
       } else if (props.isCheckedOut) {
         return (
           <p>
-            <b>Sách đã được mượn</b>
+            <b>Đã mượn thành công</b>
           </p>
         );
       } else if (!props.isCheckedOut) {
-        return <p className="text-danger">Có quá nhiều sách đã được mượn.</p>;
+        return <p className="text-danger">Bạn đã mượn quá nhiều sách</p>;
       }
     }
     return (
@@ -50,14 +50,14 @@ export const CheckoutAndReviewBox: React.FC<{
     } else if (props.isAuthenticated && props.isReviewLeft) {
       return (
         <p>
-          <b>Cảm ơn lời đánh giá của b</b>
+          <b>Cảm ơn bạn đã review</b>
         </p>
       );
     }
     return (
       <div>
         <hr />
-        <p>Đăng nhập để đánh giá sách</p>
+        <p>Đăng nhập để có thể để lại review</p>
       </div>
     );
   }
@@ -71,7 +71,8 @@ export const CheckoutAndReviewBox: React.FC<{
       <div className="card-body container">
         <div className="mt-3">
           <p>
-            Đã mượn <b>{props.currentLoansCount}/5 </b> quyển
+            <b>{props.currentLoansCount}/5 </b>
+            sách đã mượn
           </p>
           <hr />
           {props.book &&
@@ -79,7 +80,7 @@ export const CheckoutAndReviewBox: React.FC<{
           props.book.copiesAvailable > 0 ? (
             <h4 className="text-success">Số lượng sách</h4>
           ) : (
-            <h4 className="text-danger">Chưa có sách</h4>
+            <h4 className="text-danger">Sách hiện không còn</h4>
           )}
           <div className="row">
             <p className="col-6 lead">
@@ -88,13 +89,15 @@ export const CheckoutAndReviewBox: React.FC<{
             </p>
             <p className="col-6 lead">
               <b>{props.book?.copiesAvailable} </b>
-              Khả dụng (mượn đc)
+              khả dụng (có thể mượn)
             </p>
           </div>
         </div>
         {buttonRender()}
         <hr />
-        <p className="mt-3">Con số này có thể đc thay đổi</p>
+        <p className="mt-3">
+          Số lượng sách có thể được cập nhật sau khi chúng tôi nhập thêm sách
+        </p>
         {reviewRender()}
       </div>
     </div>

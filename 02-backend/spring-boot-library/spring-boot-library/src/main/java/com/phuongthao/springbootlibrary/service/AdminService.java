@@ -56,7 +56,6 @@ public class AdminService {
         bookRepository.save(book.get());
     }
 
-
     public void postBook(AddBookRequest addBookRequest) {
         Book book = new Book();
         book.setTitle(addBookRequest.getTitle());

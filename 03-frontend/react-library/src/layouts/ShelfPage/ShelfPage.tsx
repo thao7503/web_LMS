@@ -34,7 +34,7 @@ export const ShelfPage = () => {
               aria-controls="nav-history"
               aria-selected="false"
             >
-              Xem lịch sử
+              Xem lịch sử mượn
             </button>
           </div>
         </nav>

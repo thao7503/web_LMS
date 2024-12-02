@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import BookModel from "../../../models/BookModel";
 import { SpinnerLoading } from "../../Utils/SpinnerLoading";
 import { Link } from "react-router-dom";
-import { randomInt } from "crypto";
 
 export const Carousel = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
@@ -65,7 +64,7 @@ export const Carousel = () => {
   return (
     <div className="container mt-5" style={{ height: 550 }}>
       <div className="homepage-carousel-title">
-        <h3>Lorem ?</h3>
+        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
       </div>
       <div
         id="carouselExampleControls"
@@ -126,7 +125,7 @@ export const Carousel = () => {
       {/* Mobile */}
       <div className="d-lg-none mt-3">
         <div className="row d-flex justify-content-center align-items-center">
-          <ReturnBook book={books[0]} key={books[0].id} />
+          <ReturnBook book={books[7]} key={books[7].id} />
         </div>
       </div>
       <div className="homepage-carousel-title mt-3">

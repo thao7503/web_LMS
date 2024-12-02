@@ -17,4 +17,10 @@ public interface CheckoutRepository extends JpaRepository<Checkout, Long> {
     @Modifying
     @Query("delete from Checkout where book_id in :book_id")
     void deleteAllByBookId(@Param("book_id") Long bookId);
+
+    @Query("SELECT c FROM Checkout c WHERE c.returnDate <= :thresholdDate AND c.returned = false AND c.userEmail = :userEmail")
+    List<Checkout> findDueSoonBooksForUser(@Param("thresholdDate") String thresholdDate, @Param("userEmail") String userEmail);
+
+
+
 }

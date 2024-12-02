@@ -21,7 +21,7 @@ export const AdminMessage: React.FC<{
     <div key={props.message.id}>
       <div className="card mt-2 shadow p-3 bg-body rounded">
         <h5>
-          Lời nhắn#{props.message.id}: {props.message.title}
+          Lời nhắn số #{props.message.id}: {props.message.title}
         </h5>
         <h6>{props.message.userEmail}</h6>
         <p>{props.message.question}</p>
@@ -35,7 +35,7 @@ export const AdminMessage: React.FC<{
               </div>
             )}
             <div className="col-md-12 mb-3">
-              <label className="form-label">Mô tả (viet khong dau) </label>
+              <label className="form-label"> Mô tả (viet khong dau)</label>
               <textarea
                 className="form-control"
                 id="exampleFormControlTextarea1"

@@ -8,7 +8,7 @@ export const Footer = () => {
                 justify-content-between align-items-center py-5 main-color"
       >
         <p className="col-md-4 mb-0 text-white">
-          © Thư viện này tạo bởi CHÚNG TỚ =)))
+          © Thư viện này tạo bởi CHÚNG TỚ
         </p>
         <ul className="nav navbar-dark col-md-4 justify-content-end">
           <li className="nav-item">
@@ -18,7 +18,7 @@ export const Footer = () => {
           </li>
           <li className="nav-item">
             <Link to="/search" className="nav-link px-2 text-white">
-              Tìm kiếm
+              tìm kiếm
             </Link>
           </li>
         </ul>

@@ -112,7 +112,7 @@ export const AddNewBook = () => {
                 />
               </div>
               <div className="col-md-3 mb-3">
-                <label className="form-label"> Tác giả </label>
+                <label className="form-label"> Tác giả</label>
                 <input
                   type="text"
                   className="form-control"
@@ -143,7 +143,7 @@ export const AddNewBook = () => {
                       onClick={() => categoryField("VH")}
                       className="dropdown-item"
                     >
-                      Văn học
+                      Văn Học
                     </a>
                   </li>
                   <li>
@@ -151,7 +151,7 @@ export const AddNewBook = () => {
                       onClick={() => categoryField("TT")}
                       className="dropdown-item"
                     >
-                      Trinh thám
+                      Trinh Thám
                     </a>
                   </li>
                   <li>
@@ -159,7 +159,7 @@ export const AddNewBook = () => {
                       onClick={() => categoryField("TN")}
                       className="dropdown-item"
                     >
-                      Truyện ngắn
+                      Truyện Ngắn
                     </a>
                   </li>
                   <li>
@@ -167,7 +167,7 @@ export const AddNewBook = () => {
                       onClick={() => categoryField("KH")}
                       className="dropdown-item"
                     >
-                      Khoa học
+                      Khoa Học
                     </a>
                   </li>
                 </ul>

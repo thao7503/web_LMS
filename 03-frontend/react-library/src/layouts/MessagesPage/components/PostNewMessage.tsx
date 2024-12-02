@@ -52,11 +52,11 @@ export const PostNewMessage = () => {
           )}
           {displaySuccess && (
             <div className="alert alert-success" role="alert">
-              Thêm thành công
+              Hỏi thành công
             </div>
           )}
           <div className="mb-3">
-            <label className="form-label">Tiêu đề (không dấu)</label>
+            <label className="form-label">Tiêu đề</label>
             <input
               type="text"
               className="form-control"
@@ -68,7 +68,7 @@ export const PostNewMessage = () => {
           </div>
 
           <div className="mb-3">
-            <label className="form-label">Nội dung (không dấu) </label>
+            <label className="form-label">Nội dung</label>
             <textarea
               className="form-control"
               id="exampleFormControlTextarea1"
@@ -83,7 +83,7 @@ export const PostNewMessage = () => {
               className="btn btn-primary mt-3"
               onClick={submitNewQuestion}
             >
-              Gửi lời nhắn
+              gửi lời nhắn
             </button>
           </div>
         </form>

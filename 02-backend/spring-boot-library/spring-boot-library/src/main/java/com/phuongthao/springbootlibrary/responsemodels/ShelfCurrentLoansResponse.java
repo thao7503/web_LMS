@@ -10,6 +10,8 @@ public class ShelfCurrentLoansResponse {
         this.book = book;
         this.daysLeft = daysLeft;
     }
+
     private Book book;
+
     private int daysLeft;
 }

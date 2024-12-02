@@ -1,77 +1,54 @@
 package com.phuongthao.springbootlibrary.config;
 
-import com.phuongthao.springbootlibrary.dao.UserRepository;
-import com.phuongthao.springbootlibrary.entity.User;
+import com.okta.spring.boot.oauth.Okta;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.accept.ContentNegotiationStrategy;
+import org.springframework.web.accept.HeaderContentNegotiationStrategy;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration {
+public class SecurityConfiguration implements WebMvcConfigurer {
 
-    private final UserRepository userRepository;
-
-    public SecurityConfiguration(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    // Cấu hình UserDetailsService để lấy thông tin người dùng từ MySQL database
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return username -> {
-            User user = userRepository.findByUsername(username)
-                    .orElseThrow(() -> new UsernameNotFoundException("User not found: " + username));
-            return org.springframework.security.core.userdetails.User.builder()
-                    .username(user.getUsername())
-                    .password(user.getPassword())
-                    .roles(user.getRole()) // Role được lưu trong database
-                    .build();
-        };
-    }
-
-    // Cấu hình PasswordEncoder sử dụng BCrypt để mã hóa mật khẩu
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    // Cấu hình SecurityFilterChain
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // Disable CSRF (nếu không cần thiết cho REST API)
         http.csrf().disable();
 
-        // Cấu hình các endpoint cần xác thực và cho phép
-        http.authorizeRequests(configurer ->
+        // Enable CORS globally
+        http.cors()
+                .and()
+                .authorizeRequests(configurer ->
                         configurer
-                                .antMatchers("/auth/**").permitAll() // Các endpoint đăng ký, đăng nhập
                                 .antMatchers("/api/books/secure/**",
                                         "/api/reviews/secure/**",
                                         "/api/messages/secure/**",
-                                        "/api/admin/secure/**")
-                                .authenticated() // Yêu cầu xác thực với các endpoint secure
-                                .antMatchers("/api/**").permitAll()) // Cho phép truy cập các endpoint khác
-                .formLogin() // Cấu hình form login
-                .loginPage("/login") // Tùy chọn: Tạo trang login tùy chỉnh nếu cần
-                .permitAll()
-                .and()
-                .logout() // Cấu hình logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/")
-                .permitAll()
-                .and()
-                .httpBasic(); // Xác thực cơ bản (Basic Auth)
+                                        "/api/admin/secure/**",
+                                        "/api/checkouts/due-soon")
+                                .authenticated())
+                .oauth2ResourceServer()
+                .jwt();
 
-        // Thêm cấu hình CORS nếu cần
-        http.cors();
+        // Add content negotiation strategy
+        http.setSharedObject(ContentNegotiationStrategy.class,
+                new HeaderContentNegotiationStrategy());
+
+        // Force a non-empty response body for 401's to make the response friendly
+        Okta.configureResourceServer401ResponseBody(http);
 
         return http.build();
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000")  // Allow frontend to access
+                .allowedMethods("GET", "POST", "PUT", "DELETE")  // Specify allowed HTTP methods
+                .allowedHeaders("*")  // Allow any headers
+                .allowCredentials(true);  // Allow credentials like cookies or authorization headers
     }
 }

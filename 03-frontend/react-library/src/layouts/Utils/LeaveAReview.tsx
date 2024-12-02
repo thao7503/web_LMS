@@ -18,7 +18,7 @@ export const LeaveAReview: React.FC<{ submitReview: any }> = (props) => {
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
       >
-        Reviee nhé?
+        Leave a review?
       </h5>
       <ul
         id="submitReviewRating"
@@ -88,7 +88,7 @@ export const LeaveAReview: React.FC<{ submitReview: any }> = (props) => {
           <hr />
 
           <div className="mb-3">
-            <label className="form-label">Mô tả</label>
+            <label className="form-label">mô tả</label>
             <textarea
               className="form-control"
               id="submitReviewDescription"
@@ -104,7 +104,7 @@ export const LeaveAReview: React.FC<{ submitReview: any }> = (props) => {
               onClick={() => props.submitReview(starInput, reviewDescription)}
               className="btn btn-primary mt-3"
             >
-              Gửi RV
+              gửi rv
             </button>
           </div>
         </form>

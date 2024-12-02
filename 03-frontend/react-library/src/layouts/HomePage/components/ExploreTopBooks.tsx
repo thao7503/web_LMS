@@ -8,7 +8,7 @@ export const ExploreTopBooks = () => {
                 d-flex justify-content-center align-items-center"
       >
         <div>
-          <h1 className="display-5 fw-bold">Welcome to this Thư viện </h1>
+          <h1 className="display-5 fw-bold">Welcome to this Thư viện</h1>
           <p className="col-md-8 fs-4">Chào mừng bạn đến với Library này</p>
           <Link
             type="button"

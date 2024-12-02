@@ -34,7 +34,7 @@ export const MessagesPage = () => {
               aria-controls="nav-message"
               aria-selected="false"
             >
-              Phản hồi
+              phản hồi
             </button>
           </div>
         </nav>

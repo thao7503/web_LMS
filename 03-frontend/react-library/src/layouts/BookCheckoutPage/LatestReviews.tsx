@@ -10,7 +10,7 @@ export const LatestReviews: React.FC<{
   return (
     <div className={props.mobile ? "mt-3" : "row mt-5"}>
       <div className={props.mobile ? "" : "col-sm-2 col-md-2"}>
-        <h2>Reviews gần đây nhất: </h2>
+        <h2>Đánh giá gần đây nhất: </h2>
       </div>
       <div className="col-sm-10 col-md-10">
         {props.reviews.length > 0 ? (
@@ -25,13 +25,13 @@ export const LatestReviews: React.FC<{
                 className="btn main-color btn-md text-white"
                 to={`/reviewlist/${props.bookId}`}
               >
-                Xem tca đánh giá
+                Xem tất cả đánh giá
               </Link>
             </div>
           </>
         ) : (
           <div className="m-3">
-            <p className="lead">Hiện tại ko có rv nào cho quyển này</p>
+            <p className="lead">Hiện tại không có rv nào cho quyển này</p>
           </div>
         )}
       </div>

@@ -112,12 +112,13 @@ export const ChangeQuantityOfBook: React.FC<{
         <div className="mt-3 col-md-4">
           <div className="d-flex justify-content-center algin-items-center">
             <p>
-              Số lượng tổng: <b>{quantity}</b>
+              {" "}
+              Số lượng tổng:<b>{quantity}</b>
             </p>
           </div>
           <div className="d-flex justify-content-center align-items-center">
             <p>
-              Số lượng còn: <b>{remaining}</b>
+              Số lượng còn:<b>{remaining}</b>
             </p>
           </div>
         </div>
@@ -138,7 +139,7 @@ export const ChangeQuantityOfBook: React.FC<{
           className="m1 btn btn-md btn-warning"
           onClick={decreaseQuantity}
         >
-          Giảm số lương (như trên :)))
+          Giảm số lương (-1)
         </button>
       </div>
     </div>

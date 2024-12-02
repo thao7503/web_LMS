@@ -87,10 +87,10 @@ export const ChangeQuantityOfBooks = () => {
       {totalAmountOfBooks > 0 ? (
         <>
           <div className="mt-3">
-            <h3>Số đầu sách: ({totalAmountOfBooks})</h3>
+            <h3>Số đầu sách ({totalAmountOfBooks})</h3>
           </div>
           <p>
-            Từ sách {indexOfFirstBook + 1} tới sách {lastItem} của{" "}
+            {indexOfFirstBook + 1} tới sách {lastItem} trong{" "}
             {totalAmountOfBooks} đầu sách:
           </p>
           {books.map((book) => (
@@ -102,7 +102,7 @@ export const ChangeQuantityOfBooks = () => {
           ))}
         </>
       ) : (
-        <h5>Phải tạo mới saschsc trước khi thay đổi</h5>
+        <h5>Phải tạo mới sách trước khi thay đổi</h5>
       )}
       {totalPages > 1 && (
         <Pagination

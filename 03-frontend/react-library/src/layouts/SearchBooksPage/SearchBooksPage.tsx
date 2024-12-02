@@ -131,7 +131,7 @@ export const SearchBooksPage = () => {
                 <input
                   className="form-control me-2"
                   type="search"
-                  placeholder="Tìm kiếm"
+                  placeholder="Search"
                   aria-labelledby="Search"
                   onChange={(e) => setSearch(e.target.value)}
                 />
@@ -139,7 +139,7 @@ export const SearchBooksPage = () => {
                   className="btn btn-outline-success"
                   onClick={() => searchHandleChange()}
                 >
-                  Tìm kiếm
+                  tìm kiếm
                 </button>
               </div>
             </div>
@@ -152,7 +152,7 @@ export const SearchBooksPage = () => {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Chọn thể loại
+                  Thể loại
                 </button>
                 <ul
                   className="dropdown-menu"
@@ -165,7 +165,7 @@ export const SearchBooksPage = () => {
                   </li>
                   <li onClick={() => categoryField("VH")}>
                     <a className="dropdown-item" href="#">
-                      Văn học
+                      Văn Học
                     </a>
                   </li>
                   <li onClick={() => categoryField("TT")}>
@@ -175,12 +175,12 @@ export const SearchBooksPage = () => {
                   </li>
                   <li onClick={() => categoryField("TN")}>
                     <a className="dropdown-item" href="#">
-                      Truyện ngắn
+                      Truyện Ngắn
                     </a>
                   </li>
                   <li onClick={() => categoryField("KH")}>
                     <a className="dropdown-item" href="#">
-                      Khoa học
+                      Khoa Học
                     </a>
                   </li>
                 </ul>
@@ -190,11 +190,11 @@ export const SearchBooksPage = () => {
           {totalAmountOfBooks > 0 ? (
             <>
               <div className="mt-3">
-                <h5>Kết quả tìm: ({totalAmountOfBooks})</h5>
+                <h5>Number of results: ({totalAmountOfBooks})</h5>
               </div>
               <p>
-                Sách {indexOfFirstBook + 1} tới {lastItem} của{" "}
-                {totalAmountOfBooks} đầu sách:
+                {indexOfFirstBook + 1} to {lastItem} of {totalAmountOfBooks}{" "}
+                items:
               </p>
               {books.map((book) => (
                 <SearchBook book={book} key={book.id} />

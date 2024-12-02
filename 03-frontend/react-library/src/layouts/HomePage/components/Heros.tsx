@@ -13,7 +13,7 @@ export const Heros = () => {
           </div>
           <div className="col-4 col-md-4 container d-flex justify-content-center align-items-center">
             <div className="ml-2">
-              <h1>Lorem gì gì đó</h1>
+              <h1>Lorem Something</h1>
               <p className="lead">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere
                 quae id iste, vero doloremque corrupti pariatur amet architecto
@@ -42,7 +42,7 @@ export const Heros = () => {
                         justify-content-center align-items-center"
           >
             <div className="ml-2">
-              <h1>Lại là lorem</h1>
+              <h1>Lorem lorem lorem</h1>
               <p className="lead">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
                 provident nobis beatae quis tempora animi minus eligendi! Sed
@@ -63,12 +63,12 @@ export const Heros = () => {
           <div className="m-2">
             <div className="col-image-left"></div>
             <div className="mt-2">
-              <h1>What have you been reading?</h1>
+              <h1>Lorem lorem lorem</h1>
               <p className="lead">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eveniet, optio, eius cumque impedit sed eum nam animi architecto
-                suscipit porro nesciunt culpa molestias vel illum dolor
-                expedita, sit pariatur et?
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                provident nobis beatae quis tempora animi minus eligendi! Sed
+                voluptate repellendus ullam ipsa numquam! Nulla neque deleniti
+                minima, corporis illo enim?
               </p>
               {authState?.isAuthenticated ? (
                 <Link

@@ -34,4 +34,14 @@ public class Checkout {
 
     @Column(name = "book_id")
     private Long bookId;
+
+    @Column(name = "returned")
+    private boolean returned = false;
+
+//    @Column(name = "book_title")
+//    private String bookTitle;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "book_id", referencedColumnName = "id", insertable = false, updatable = false)
+//    private Book book;
 }

@@ -123,15 +123,15 @@ export const Loans = () => {
                         <h4>Lựa chọn mượn/trả</h4>
                         {shelfCurrentLoan.daysLeft > 0 && (
                           <p className="text-secondary">
-                            Trả sách trong {shelfCurrentLoan.daysLeft} ngày nữa.
+                            trả trong {shelfCurrentLoan.daysLeft} ngày.
                           </p>
                         )}
                         {shelfCurrentLoan.daysLeft === 0 && (
-                          <p className="text-success">Trả sách ngay.</p>
+                          <p className="text-success">Trả ngay.</p>
                         )}
                         {shelfCurrentLoan.daysLeft < 0 && (
                           <p className="text-danger">
-                            Past due by {shelfCurrentLoan.daysLeft} days.
+                            trả trong {shelfCurrentLoan.daysLeft} ngày.
                           </p>
                         )}
                         <div className="list-group mt-3">
@@ -141,13 +141,13 @@ export const Loans = () => {
                             data-bs-toggle="modal"
                             data-bs-target={`#modal${shelfCurrentLoan.book.id}`}
                           >
-                            Quản lý mượn sách
+                            quản lý mượn sách
                           </button>
                           <Link
                             to={"search"}
                             className="list-group-item list-group-item-action"
                           >
-                            Tìm kiếm sách khác
+                            Timg kiếm sách
                           </Link>
                         </div>
                       </div>
@@ -157,7 +157,7 @@ export const Loans = () => {
                         className="btn btn-primary"
                         to={`/checkout/${shelfCurrentLoan.book.id}`}
                       >
-                        Review
+                        review
                       </Link>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ export const Loans = () => {
           </>
         ) : (
           <>
-            <h3 className="mt-3">Hiện tại bạn ko mượn quyển nào</h3>
+            <h3 className="mt-3">Currently no loans</h3>
             <Link className="btn btn-primary" to={`search`}>
               Khám phá sách khác
             </Link>
@@ -186,7 +186,7 @@ export const Loans = () => {
       <div className="container d-lg-none mt-2">
         {shelfCurrentLoans.length > 0 ? (
           <>
-            <h5 className="mb-3">Đang mượn: </h5>
+            <h5 className="mb-3">Current Loans: </h5>
 
             {shelfCurrentLoans.map((shelfCurrentLoan) => (
               <div key={shelfCurrentLoan.book.id}>
@@ -213,11 +213,11 @@ export const Loans = () => {
                       <h4>Lựa chọn mượn/trả</h4>
                       {shelfCurrentLoan.daysLeft > 0 && (
                         <p className="text-secondary">
-                          Trả sách trong {shelfCurrentLoan.daysLeft} ngày nữa.
+                          Trả trong {shelfCurrentLoan.daysLeft} ngày.
                         </p>
                       )}
                       {shelfCurrentLoan.daysLeft === 0 && (
-                        <p className="text-success">Trả ngay.</p>
+                        <p className="text-success">trả ngay</p>
                       )}
                       {shelfCurrentLoan.daysLeft < 0 && (
                         <p className="text-danger">
@@ -242,12 +242,12 @@ export const Loans = () => {
                       </div>
                     </div>
                     <hr />
-                    <p className="mt-3">Để lại rv tại đây</p>
+                    <p className="mt-3">Có thể để lại rv tại đây</p>
                     <Link
                       className="btn btn-primary"
                       to={`/checkout/${shelfCurrentLoan.book.id}`}
                     >
-                      Review
+                      review
                     </Link>
                   </div>
                 </div>
@@ -264,7 +264,7 @@ export const Loans = () => {
           </>
         ) : (
           <>
-            <h3 className="mt-3">Htai bạn ko mượn gì</h3>
+            <h3 className="mt-3">Currently no loans</h3>
             <Link className="btn btn-primary" to={`search`}>
               Khám phá sách khác
             </Link>
